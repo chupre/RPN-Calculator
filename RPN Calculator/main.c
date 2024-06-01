@@ -366,19 +366,33 @@ long double apply_operand(long double n1, long double n2, char operand)
 	{
 	case '+':
 		return n1 + n2;
+
 	case '-':
 		return n1 - n2;
+
 	case '*':
 		return n1 * n2;
+
 	case '/':
+
 		if (n2 == 0)
 		{
+			printf("-nan");
 			exit(EXIT_SUCCESS);
 		}
 
 		return n1 / n2;
+
 	case '%':
+
+		if (n2 == 0)
+		{
+			printf("-nan");
+			exit(EXIT_SUCCESS);
+		}
+
 		return fmodl(n1, n2);
+
 	case '^':
 		return powl(n1, n2);
 
