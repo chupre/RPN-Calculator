@@ -377,7 +377,6 @@ long double apply_operand(long double n1, long double n2, char operand)
 
 		if (n2 == 0)
 		{
-			printf("-nan");
 			exit(EXIT_SUCCESS);
 		}
 
@@ -387,7 +386,6 @@ long double apply_operand(long double n1, long double n2, char operand)
 
 		if (n2 == 0)
 		{
-			printf("-nan");
 			exit(EXIT_SUCCESS);
 		}
 
@@ -433,6 +431,10 @@ unsigned long long apply_operand_ull(unsigned long long n1, unsigned long long n
 
 		return n1 / n2;
 	case '%':
+		if (n2 == 0)
+		{
+			printf("-nan");
+		}
 		return n1 % n2;
 	case '^':
 		return pow_ull(n1, n2);
